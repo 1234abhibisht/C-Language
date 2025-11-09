@@ -1,0 +1,32 @@
+/* Create a structure 'date' that contains three members namely day, month and year. Create 2
+    structure variables with different dates and now compare the two. If the months are equal then
+    display message as "Equal" otherwise "Unequal" */
+
+#include <stdio.h>
+#include <string.h>
+typedef struct Date
+{
+    char day[40];
+    int month;
+    int year;
+} Date;
+
+int main() {
+    Date a;
+    strcpy(a.day,"Monday");
+    a.month = 07;
+    a.year = 2024;
+
+    Date b;
+    strcpy(b.day,"Saturday");
+    b.month = 12;
+    b.year = 2025;
+
+    if(strcmp(a.month,b.month) == 0) {
+        printf("Equal");
+    }
+    else {
+        printf("Unequal");
+    }
+    return 0;
+}
