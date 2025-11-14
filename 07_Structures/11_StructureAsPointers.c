@@ -9,8 +9,8 @@ int main()
 {
     Pokemon pikachu;
     Pokemon *ptr = &pikachu;
-    ptr->attack = 100;
-    ptr->hp = 80;
+    ptr->attack = 100;   /* or (*ptr).attack = 100 */
+    ptr->hp = 80;        /* (*ptr).hp = 80 */
     printf("%d\n", ptr->attack);
     printf("%d\n", ptr->hp);
     return 0;
