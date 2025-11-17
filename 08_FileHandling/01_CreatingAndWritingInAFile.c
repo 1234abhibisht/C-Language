@@ -1,18 +1,21 @@
 /* Write a program to create a new file and write text into it. */
 
 #include <stdio.h>
-int main()
-{
-    /* creating a new file */
-    FILE *createFile = fopen("newfile.txt", "w");
+int main() {
+    /* create and open file */
+    FILE* f = fopen("newfile.txt", "w");
 
-    /* writing text into file */
-    char text[100];
-    printf("Enter text to write in file : ");
-    fgets(text, 100, stdin);
-    fputs(text, createFile);
+    /* check if file is failed to open */
+    if(f == NULL) {
+        /* if file is failed to open, it will give an error code */
+        perror("fopen");
+        return 1;
+    }
 
-    fclose(createFile);
-    printf("Input completed\n");
+    /* writing inside the file */
+    fprintf(f, "Name : Abhishek Bisht \nAge : 20 \nCity : Dehradun\n");
+
+    /* close the file */
+    fclose(f);
     return 0;
 }
