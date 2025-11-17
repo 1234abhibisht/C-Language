@@ -1,22 +1,22 @@
-  GNU nano 7.2                                            Lab_02.c
-/* Open an existing file and read its content character by character and then close the file */
-
-/* here we have to read and print file character by character */
+/* Open an existing file and read its content line by line and then close the file */
 
 #include <stdio.h>
-int main()
-{
-    /* first we have to open the file */
-    FILE *openFile = fopen("newfile.txt", "r");
+int main() {
+  FILE* f = fopen("newfile.txt","r");
 
-    /* now access the content inside the file */
-    int ch;
-    while ((ch = fgetc(openFile)) != EOF)
-    {
-        putchar(ch);
-    }
+  if(f == NULL) {
+    perror("fopen");
+    return 1;
+  }
 
-    fclose(openFile);
-    return 0;
+  /* read content inside file, line by line */
+  char str[100];
+  while(fgets(str, 100, f)) {
+    printf("%s",str);
+  }
+
+  fclose(f);
+  return 0;
 }
+
 
