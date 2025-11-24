@@ -12,6 +12,7 @@ int main()
     if (arr == NULL)
     {
         printf("Memory allocation failed");
+        return 1;  // or exit(1)
     }
 
     printf("Enter your array : ");
@@ -30,7 +31,8 @@ int main()
             if (arr == NULL)
             {
                 printf("Memory reallocation failed");
-            }
+                return 1;  // or exit(1)
+            } 
         }
         arr[elements] = value;
         elements++;
