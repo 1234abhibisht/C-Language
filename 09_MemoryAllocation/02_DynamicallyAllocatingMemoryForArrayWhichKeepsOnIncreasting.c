@@ -9,17 +9,28 @@ int main()
     int *arr = (int *)malloc(size * sizeof(int));
     /* we have just reserved the memory, not given any input in array */
 
+    if (arr == NULL)
+    {
+        printf("Memory allocation failed");
+    }
+
+    printf("Enter your array : ");
     while (1)
     {
         int value;
         scanf("%d", &value);
-        if(value == -1) {
+        if (value == -1)
+        {
             break;
         }
         if (size == elements)
         {
             size *= 2;
             arr = realloc(arr, size * sizeof(int));
+            if (arr == NULL)
+            {
+                printf("Memory reallocation failed");
+            }
         }
         arr[elements] = value;
         elements++;
