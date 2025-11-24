@@ -4,7 +4,7 @@ int main()
 {
     int size = 10;
     int elements = 0;
-    char *str = malloc(size);
+    char *str = (char*)malloc(size);
     /* as character takes only 1 byte, so no need to multiply with sizeof(char) */
 
     if (str == NULL)
