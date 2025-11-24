@@ -31,6 +31,8 @@ int main()
         elements++;
     }
     str[elements] = '\0'; /* terminate the last character by making it '\0' */
+    free(str);
+    str = NULL;
 
     printf("%s\n",str);
     return 0;
