@@ -30,5 +30,7 @@ int main()
     rewind(f);
 
     fclose(f);
+    free(str);
+    str = NULL;
     return 0;
 }
