@@ -14,6 +14,7 @@ int main() {
 
     /* writing inside the file */
     fprintf(f, "Name : Abhishek Bisht \nAge : 20 \nCity : Dehradun\n");
+    rewind(f);  
 
     /* close the file */
     fclose(f);
