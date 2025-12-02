@@ -11,10 +11,11 @@ int main()
     int *arr = (int *)malloc(n * sizeof(int));
 
     /* always do a test case */
-    if (arr == NULL)
+    if (!arr)
     {
         printf("Failed to allocate memory");
-        return 1;
+        free(arr);
+        exit(1);
     }
 
     printf("Enter array : ");
