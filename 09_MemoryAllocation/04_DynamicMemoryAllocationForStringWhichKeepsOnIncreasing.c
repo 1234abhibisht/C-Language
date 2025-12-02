@@ -4,13 +4,14 @@ int main()
 {
     int size = 10;
     int elements = 0;
-    char *str = (char*)malloc(size);
+    char *str = (char *)malloc(size);
     /* as character takes only 1 byte, so no need to multiply with sizeof(char) */
 
-    if (str == NULL)
+    if (!str)
     {
         printf("Memory allocaton failed");
-        return 1;
+        free(str);
+        exit(1);
     }
 
     int ch;
@@ -21,19 +22,20 @@ int main()
         {
             size *= 2;
             str = realloc(str, size);
-            if (str == NULL)
+            if (!str)
             {
                 printf("Memory reallocaton failed");
-                return 1;
+                free(str);
+                exit(1);
             }
         }
         str[elements] = ch; /* as ch has ASCII values of character, so automically it will be typecasted */
         elements++;
     }
     str[elements] = '\0'; /* terminate the last character by making it '\0' */
+    printf("%s\n", str);
+    
     free(str);
     str = NULL;
-
-    printf("%s\n",str);
     return 0;
 }
