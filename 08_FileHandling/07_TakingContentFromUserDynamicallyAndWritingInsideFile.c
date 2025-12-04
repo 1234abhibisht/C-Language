@@ -14,7 +14,7 @@ int main()
     int elements = 0;
     char *str = (char *)malloc(size);
     int ch;
-    while ((ch = getchar()) != EOF && ch != '\n' )
+    while ((ch = getchar()) != EOF && ch != '\n')
     {
         if (size == elements)
         {
@@ -26,7 +26,7 @@ int main()
     }
     str[elements] = '\0';
 
-    fprintf(f, "%s", str);
+    fwrite(str, 1, elements, f);
     rewind(f);
 
     fclose(f);
